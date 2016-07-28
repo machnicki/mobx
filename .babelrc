@@ -4,5 +4,8 @@
     "stage-0",
     "react",
     "react-optimize",
+  ],
+  "plugins": [
+    ["transform-decorators-legacy"],
   ]
 }
