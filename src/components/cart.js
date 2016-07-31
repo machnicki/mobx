@@ -9,10 +9,14 @@ class Cart extends Component {
         { this.props.store.cart.map(
           product => (
             <li>
-              { product.quantity }
+              quantity: { product.quantity },
+              price: { product.price }
               <button onClick={() => {
                 this.props.store.cartMethods.increment(product.productId)
               }}>+</button>
+              <button onClick={() => {
+                this.props.store.cartMethods.decrement(product.productId)
+              }}>-</button>
             </li>
           )
         ) }
