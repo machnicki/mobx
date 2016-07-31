@@ -12,10 +12,10 @@ class Cart extends Component {
               quantity: { product.quantity },
               price: { product.price }
               <button onClick={() => {
-                this.props.store.cartMethods.increment(product.productId)
+                this.props.store.increment(product.productId)
               }}>+</button>
               <button onClick={() => {
-                this.props.store.cartMethods.decrement(product.productId)
+                this.props.store.decrement(product.productId)
               }}>-</button>
             </li>
           )
