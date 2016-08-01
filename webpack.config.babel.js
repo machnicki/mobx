@@ -26,6 +26,18 @@ export default {
         test: /\.(js|jsx)$/,
         loader: 'babel',
         include: PATHS.app,
+        query: {
+          "presets": [
+            "es2015",
+            "stage-0",
+            "react",
+            "react-optimize",
+          ],
+          "plugins": [
+            "transform-decorators-legacy",
+            "transform-class-properties"
+          ],
+        }
       },
     ],
   },

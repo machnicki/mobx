@@ -1,12 +1,5 @@
 {
   "presets": [
-    "es2015",
-    "stage-0",
-    "react",
-    "react-optimize",
+    "react-native",
   ],
-  "plugins": [
-    "transform-decorators-legacy",
-    "transform-class-properties"
-  ]
 }
