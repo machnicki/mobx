@@ -1,44 +1,17 @@
 {
-  "name": "mobx-test",
-  "version": "1.0.0",
-  "description": "test mobx app",
+  "name": "mobxReactNative",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "webpack-dev-server --content-base build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/machnicki/mobx.git"
-  },
-  "keywords": [
-    "mobx"
-  ],
-  "author": "Miron Machnicki",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/machnicki/mobx/issues"
-  },
-  "homepage": "https://github.com/machnicki/mobx#readme",
   "dependencies": {
-    "babel-core": "^6",
-    "babel-loader": "^6",
     "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-polyfill": "^6",
-    "babel-preset-es2015": "^6",
-    "babel-preset-react": "^6",
-    "babel-preset-react-optimize": "^1",
-    "babel-preset-stage-0": "^6",
-    "babel-register": "^6",
-    "body-parser": "^1.15.2",
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "mobx": "^2.4.1",
-    "mobx-react": "^3.5.1",
-    "react": "^15",
-    "react-dom": "^15",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
-  },
-  "devDependencies": {
-    "mobx-react-devtools": "^4.2.4"
+    "mobx-react": "^3.5.3",
+    "react": "15.2.1",
+    "react-native": "0.30.0"
   }
 }
