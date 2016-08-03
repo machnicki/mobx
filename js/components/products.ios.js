@@ -12,7 +12,9 @@ class Products extends Component {
   render() {
     return (
       <Text>
-        { this.props.store.products.map(product => <Text>{ product.name }</Text>) }
+        { this.props.store.products.map(
+          product => <Text key={ product.id }>{ product.name }</Text>
+        ) }
       </Text>
     )
   }
