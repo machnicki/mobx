@@ -12,4 +12,8 @@ export default class CartItem {
   @computed get price() {
     return this.quantity * appState.products.find(pr => pr.id === this.productId).price
   }
+
+  @computed get product() {
+    return appState.products.find(pr => pr.id === this.productId) || {}
+  }
 }

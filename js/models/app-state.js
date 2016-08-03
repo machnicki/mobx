@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx'
+import { action, computed, observable } from 'mobx'
 import Product from './product'
 import CartItem from './cart-item'
 
@@ -6,13 +6,30 @@ export default class AppState {
   @observable products = []
   @observable cart = []
   @observable loading = false
+  @observable activePage = 'index'
 
   constructor({
     products = [],
     cart = [],
   }) {
-    this.products = products.map(pr => new Product(pr))
-    this.cart = cart.map(ci => new CartItem(ci))
+    this.products = products.map(product => new Product(product))
+    this.cart = cart.map(cartItem => new CartItem(cartItem))
+  }
+
+  @computed get itemsInCartQuantity() {
+    return this.cart.reduce((previous, next) => previous + next.quantity, 0)
+  }
+
+  @action addToBasket(id) {
+    console.log('id', id)
+    if (this.cart.find(item => item.productId === id)) {
+      this.increment(id)
+    } else {
+      this.cart.push(new CartItem({
+        productId: id,
+        quantity: 1,
+      }))
+    }
   }
 
   @action increment(id) {
@@ -21,5 +38,9 @@ export default class AppState {
 
   @action decrement(id) {
     this.cart.find(item => item.productId === id).quantity--
+  }
+
+  @action goTo(page) {
+    this.activePage = page
   }
 }
