@@ -167,7 +167,34 @@ button:hover {
   margin: 10px;
 }
 
+.products {
+  text-align: center;
+  position: relative;
+}
+
+.products.is-loading:before {
+  content: '';
+  display: block; height: 100%; width: 100%;
+  position: absolute; top: 0; left: 0;
+  background: white; opacity: 0.7;
+}
+
+.products.is-loading:after {
+  display: block;
+  content: 'is loading...';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.products .load-more {
+  font-size: 13px;
+  padding: 5px 20px 7px;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
 .products li, .cart li {
+  text-align: left;
   padding: 5px;
   border-bottom: 1px solid #dff0ff;
 }
