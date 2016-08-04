@@ -4,11 +4,21 @@ import Product from '../components/product'
 
 @observer
 class Products extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { isLoading: false }
+  }
+
+  handleLoadMoreClick = () => {
+    this.setState({ isLoading: true })
+    this.props.store.loadMoreProducts().then(() => this.setState({ isLoading: false }))
+  }
+
   render() {
     const { store } = this.props
 
     return (
-      <div className={`products ${store.isLoading ? 'is-loading' : ''}`}>
+      <div className={`products ${this.state.isLoading ? 'is-loading' : ''}`}>
         <ul>
           { this.props.store.products.map(product => (
             <Product
@@ -17,7 +27,7 @@ class Products extends Component {
             />
           )) }
         </ul>
-        <button onClick={ () => store.loadMoreProducts() } className="load-more">
+        <button onClick={ this.handleLoadMoreClick } className="load-more">
           Load more
         </button>
       </div>

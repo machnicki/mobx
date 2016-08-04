@@ -6,7 +6,6 @@ import { fetchProducts } from '../helpers'
 export default class AppState {
   @observable products = []
   @observable cart = []
-  @observable isLoading = false
   @observable activePage = 'index'
 
   constructor({
@@ -45,10 +44,8 @@ export default class AppState {
   }
 
   @action loadMoreProducts() {
-    this.isLoading = true
-    fetchProducts().then(results => {
+    return fetchProducts().then(results => {
       this.products = this.products.concat(results.map(product => new Product(product)))
-      this.isLoading = false
     })
   }
 }
